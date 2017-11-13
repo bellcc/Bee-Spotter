@@ -16,12 +16,20 @@ page-home {
 }
 
 ion-label {
-  color: #000000;
+  color: #757575;
 }
 
 .login-button {
   width: 100%;
   margin-top: 30px;
+  margin-bottom: 20px;
   border-radius: 0px;
   background-color: #FFD600;
+}
+
+.password-reset {
+  color: #757575;
+  height: 100%;
+  display: block;
+  vertical-align: middle;
 }
