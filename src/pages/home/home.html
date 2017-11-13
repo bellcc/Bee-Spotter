@@ -1,6 +1,16 @@
 <ion-content padding class="login-content">
   <img class="logo" src="assets/imgs/bslogo.png" style="display:inline-block"/>
 
+  <ion-row>
+    <ion-col text-right class="login-options">
+      <ion-label>Log In</ion-label>
+    </ion-col>
+
+    <ion-col text-left class="login-options">
+      <ion-label>Sign Up</ion-label>
+    </ion-col>
+  </ion-row>
+
   <ion-item class="login-input">
     <ion-label stacked>Email Address</ion-label>
     <ion-input type="email" placeholder=""></ion-input>
@@ -15,6 +25,8 @@
     Login
   </button>
 
-  <a class="password-reset">Forgot your password?</a>
+  <ion-col text-center>
+    <ion-label class="password-reset">Forgot your Password?</ion-label>
+  </ion-col>
 
 </ion-content>
