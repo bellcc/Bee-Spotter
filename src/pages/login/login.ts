@@ -22,7 +22,7 @@ export class LoginPage {
   logForm() {
     this.myService.login(this.todo["username"], this.todo["password"]).subscribe(allowed => {
       if (allowed) {
-
+        console.log("AUTH SUCCESS");
       } else {
 
       }

@@ -1,15 +1,17 @@
 <ion-content padding class="login-content">
-  <img class="logo" src="assets/imgs/bslogo.png" style="display:inline-block"/>
+  <div text-center class="logo">
+    <img src="assets/imgs/bslogo.png" style="display:inline-block"/>
+  </div>
 
   <form (ngSubmit)="logForm()">
-    <ion-item>
-      <ion-label>Username</ion-label>
-      <ion-input type="text" [(ngModel)]="todo.username" name="username"></ion-input>
+    <ion-item class="login-input">
+      <ion-label stacked>Username</ion-label>
+      <ion-input  type="text" [(ngModel)]="todo.username" name="username"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label>Password</ion-label>
+    <ion-item class="login-input">
+      <ion-label stacked>Password</ion-label>
       <ion-input type="password" [(ngModel)]="todo.password" name="password"></ion-input>
     </ion-item>
-    <button ion-button type="submit" block>Submit</button>
+    <button class="login-button" ion-button block>Submit</button>
   </form>
 </ion-content>

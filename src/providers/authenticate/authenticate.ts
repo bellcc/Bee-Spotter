@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-
 
 export class User {
   username: string;
@@ -33,12 +31,6 @@ export class AuthenticateProvider {
         let payload = new FormData();
         payload.append("username", username);
         payload.append("password", password);
-
-        /**
-        let urlSearchParams = new URLSearchParams();
-        urlSearchParams.append('username', username);
-        urlSearchParams.append('password', password);
-         */
 
         this.http.post("http://localhost:8100/api/v1/auth", payload, headers)
           .map(res => res.json())
