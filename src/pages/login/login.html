@@ -14,4 +14,8 @@
     </ion-item>
     <button class="login-button" ion-button block>Submit</button>
   </form>
+
+  <div *ngIf="invalid == true" class="invalid-credentials">
+    <p>Invalid Password</p>
+  </div>
 </ion-content>

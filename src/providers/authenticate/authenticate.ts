@@ -3,6 +3,8 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+import { Storage } from '@ionic/storage';
+
 export class User {
   username: string;
   password: string;
@@ -17,7 +19,7 @@ export class User {
 export class AuthenticateProvider {
   currentUser: User;
 
-  constructor(public http: Http) {
+  constructor(public http: Http, public storage: Storage) {
     console.log('Hello AuthenticateProvider Provider');
   }
 
@@ -38,6 +40,8 @@ export class AuthenticateProvider {
             if (data["auth_result"]) {
               this.currentUser = new User(username, password);
             }
+
+            this.storage.set("auth_token", data["auth_token"]);
 
             observer.next(data["auth_result"]);
             observer.complete();

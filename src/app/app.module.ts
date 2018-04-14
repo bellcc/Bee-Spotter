@@ -8,7 +8,13 @@ import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
+
 import { AuthenticateProvider } from '../providers/authenticate/authenticate';
+
+import { File } from '@ionic-native/file';
+import { IonicStorageModule } from '@ionic/storage';
+import { Camera } from "@ionic-native/camera";
+
 
 @NgModule({
   declarations: [
@@ -18,18 +24,21 @@ import { AuthenticateProvider } from '../providers/authenticate/authenticate';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage
+    LoginPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthenticateProvider
+    AuthenticateProvider,
+    File,
+    Camera
   ]
 })
 export class AppModule {}
