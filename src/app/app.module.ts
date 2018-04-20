@@ -4,30 +4,41 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { HttpModule } from '@angular/http';
+
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { IdentificationPage } from "../pages/identification/identification"
+import { LoginPage } from '../pages/login/login';
+
+import { AuthenticateProvider } from '../providers/authenticate/authenticate';
+
+import { File } from '@ionic-native/file';
+import { IonicStorageModule } from '@ionic/storage';
+import { Camera } from "@ionic-native/camera";
+import { SpottingsProvider } from '../providers/spottings/spottings';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    IdentificationPage
+    LoginPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
-    IdentificationPage
+    LoginPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthenticateProvider,
+    File,
+    Camera,
+    SpottingsProvider
   ]
 })
 export class AppModule {}
