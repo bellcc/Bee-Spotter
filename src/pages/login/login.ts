@@ -21,7 +21,8 @@ export class LoginPage {
 
     storage.get('auth_token').then((token) => {
       if (token) {
-        this.nav.push('ProfilePage');
+        // this.nav.push('ProfilePage');
+        this.nav.push('IdentificationPage');
       } else {
         console.log("Token not found");
       }

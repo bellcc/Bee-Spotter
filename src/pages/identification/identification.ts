@@ -17,20 +17,81 @@ import { IonicPage } from 'ionic-angular';
 export class IdentificationPage {
 
   @ViewChild(Slides) slides: Slides;
+  current_species: string;
+
+  species: string[] = [
+    "Affinis",
+    "Affinis",
+    "Affinis",
+    "Affinis",
+    "Affinis",
+    "Auriocomus",
+    "Auriocomus",
+    "Auriocomus",
+    "Bimaculatus",
+    "Citrinus",
+    "Citrinus",
+    "Citrinus",
+    "Fervidus",
+    "Fraternus",
+    "Griseocollis",
+    "Griseocollis",
+    "Griseocollis",
+    "Griseocollis",
+    "Impatiens",
+    "Pensylvanicus",
+    "Pensylvanicus",
+    "Perplexus",
+    "Rufocinctus",
+    "Vagans",
+    "Vagans",
+    "Variabilis",
+    "Variabilis",
+    "Variabilis"
+  ];
+
+  files: string[] = [
+    "affinis1",
+    "affinis5",
+    "affinis4",
+    "affinis3",
+    "affinis2",
+    "auricomus3",
+    "auricomus1",
+    "auricomus2",
+    "bimaculatus",
+    "citrinus3",
+    "citrinus1",
+    "citrinus2",
+    "fervidus",
+    "fraternus",
+    "griseocollis1",
+    "griseocollis4",
+    "griseocollis3",
+    "griseocollis2",
+    "impatiens",
+    "pensylvanicus1",
+    "pensylvanicus2",
+    "apis_mellifera",
+    "apis_mellifera",
+    "vagans1",
+    "vagans2",
+    "variabilis2",
+    "variabilis1",
+    "variabilis3"
+  ];
 
   constructor() {
-
+    this.current_species = "Affinis";
   }
 
-  ngAfterViewInit() {
-    // this.slides.freeMode = true;
-  }
+  ngAfterViewInit() { }
 
   public slideChanged():void {
-    // Do something if user swipes
+    this.current_species = this.species[this.slides.getActiveIndex()];
   }
 
-  public getBeeVariation():number {
-    return this.slides.getActiveIndex();
+  public getSelected():string {
+    return this.files[this.slides.getActiveIndex()];
   }
 }
