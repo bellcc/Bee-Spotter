@@ -60,9 +60,12 @@ export class SpottingsProvider {
     });
   }
 
-  public create_spotting(spotting: Spotting) {
+  public create_spotting(spotting: Spotting, token: string) {
     return Observable.create(observer => {
-      let headers = {'content-type': "application/x-www-form-urlencoded"};
+      let headers = {
+        'content-type': "application/x-www-form-urlencoded",
+        'X-BeeSpotter-Token': token
+      };
 
       let payload = new FormData();
       payload.append('title', spotting.title);
