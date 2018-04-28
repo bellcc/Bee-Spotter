@@ -4,6 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleMaps } from "@ionic-native/google-maps";
+
 import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
@@ -38,7 +41,9 @@ import { SpottingsProvider } from '../providers/spottings/spottings';
     AuthenticateProvider,
     File,
     Camera,
-    SpottingsProvider
+    SpottingsProvider,
+    Geolocation,
+    GoogleMaps
   ]
 })
 export class AppModule {}

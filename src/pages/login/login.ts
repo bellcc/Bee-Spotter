@@ -19,14 +19,19 @@ export class LoginPage {
   constructor(public myService: AuthenticateProvider, public tmpService: SpottingsProvider, public storage: Storage, public nav: NavController) {
     this.invalid = false;
 
+    this.nav.push('LocationPage');
+
+    /*
     storage.get('auth_token').then((token) => {
       if (token) {
         // this.nav.push('ProfilePage');
-        this.nav.push('IdentificationPage');
+        // this.nav.push('IdentificationPage');
+        this.nav.push('LocationPage');
       } else {
         console.log("Token not found");
       }
     });
+    */
   }
 
   logForm() {

@@ -2,13 +2,6 @@ import { Slides } from 'ionic-angular';
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 
-/**
- * Generated class for the IdentificationPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-identification',
@@ -93,5 +86,13 @@ export class IdentificationPage {
 
   public getSelected():string {
     return this.files[this.slides.getActiveIndex()];
+  }
+
+  public prev(): void {
+
+  }
+
+  public next(): void {
+
   }
 }

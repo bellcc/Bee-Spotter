@@ -1,8 +1,9 @@
 <ion-content padding class="identification-content" >
   <h3 id="species_name"> {{ current_species }} </h3>
+
   <ion-slides (ionSlideDidChange)="slideChanged()">
     <ion-slide>
-      <img src="assets/imgs/species/affinis1.jpg">
+      <img class="species-img" src="assets/imgs/species/affinis1.jpg">
     </ion-slide>
     <ion-slide>
       <img src="assets/imgs/species/affinis5.jpg">
@@ -86,4 +87,5 @@
       <img src="assets/imgs/species/variabilis3.jpg">
     </ion-slide>
   </ion-slides>
+
 </ion-content>
