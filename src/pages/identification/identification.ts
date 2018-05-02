@@ -1,5 +1,4 @@
-import { Slides } from 'ionic-angular';
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 
 @IonicPage()
@@ -9,90 +8,87 @@ import { IonicPage } from 'ionic-angular';
 })
 export class IdentificationPage {
 
-  @ViewChild(Slides) slides: Slides;
   current_species: string;
+  active_img: any;
 
-  species: string[] = [
-    "Affinis",
-    "Affinis",
-    "Affinis",
-    "Affinis",
-    "Affinis",
-    "Auriocomus",
-    "Auriocomus",
-    "Auriocomus",
-    "Bimaculatus",
-    "Citrinus",
-    "Citrinus",
-    "Citrinus",
-    "Fervidus",
-    "Fraternus",
-    "Griseocollis",
-    "Griseocollis",
-    "Griseocollis",
-    "Griseocollis",
-    "Impatiens",
-    "Pensylvanicus",
-    "Pensylvanicus",
-    "Perplexus",
-    "Rufocinctus",
-    "Vagans",
-    "Vagans",
-    "Variabilis",
-    "Variabilis",
-    "Variabilis"
-  ];
-
-  files: string[] = [
-    "affinis1",
-    "affinis5",
-    "affinis4",
-    "affinis3",
-    "affinis2",
-    "auricomus3",
-    "auricomus1",
-    "auricomus2",
-    "bimaculatus",
-    "citrinus3",
-    "citrinus1",
-    "citrinus2",
-    "fervidus",
-    "fraternus",
-    "griseocollis1",
-    "griseocollis4",
-    "griseocollis3",
-    "griseocollis2",
-    "impatiens",
-    "pensylvanicus1",
-    "pensylvanicus2",
-    "apis_mellifera",
-    "apis_mellifera",
-    "vagans1",
-    "vagans2",
-    "variabilis2",
-    "variabilis1",
-    "variabilis3"
-  ];
+  species: object = {
+    "Affinis": [
+      "assets/imgs/species/affinis1.jpg",
+      "assets/imgs/species/affinis5.jpg",
+      "assets/imgs/species/affinis4.jpg",
+      "assets/imgs/species/affinis3.jpg",
+      "assets/imgs/species/affinis2.jpg"
+    ],
+    "Auriocomus": [
+      "assets/imgs/species/auricomus3.jpg",
+      "assets/imgs/species/auricomus1.jpg",
+      "assets/imgs/species/auricomus2.jpg"
+    ],
+    "Bimaculatus": [
+      "assets/imgs/species/bimaculatus.jpg"
+    ],
+    "Citrinus": [
+      "assets/imgs/species/citrinus3.jpg",
+      "assets/imgs/species/citrinus1.jpg",
+      "assets/imgs/species/citrinus2.jpg"
+    ],
+    "Fervidus": [
+      "assets/imgs/species/fervidus.jpg"
+    ],
+    "Fraternus": [
+      "assets/imgs/species/fraternus.jpg"
+    ],
+    "Griseocollis": [
+      "assets/imgs/species/griseocollis1.jpg",
+      "assets/imgs/species/griseocollis4.jpg",
+      "assets/imgs/species/griseocollis3.jpg",
+      "assets/imgs/species/griseocollis2.jpg"
+    ],
+    "Impatiens": [
+      "assets/imgs/species/impatiens.jpg"
+    ],
+    "Pensylvanicus": [
+      "assets/imgs/species/pensylvanicus1.jpg",
+      "assets/imgs/species/pensylvanicus2.jpg"
+    ],
+    "Perplexus": [
+      "assets/imgs/species/apis_mellifera.png"
+    ],
+    "Rufocinctus": [
+      "assets/imgs/species/apis_mellifera.png"
+    ],
+    "Vagans": [
+      "assets/imgs/species/vagans1.jpg",
+      "assets/imgs/species/vagans2.jpg"
+    ],
+    "Variabilis": [
+      "assets/imgs/species/variabilis2.jpg",
+      "assets/imgs/species/variabilis1.jpg",
+      "assets/imgs/species/variabilis3.jpg"
+    ]
+  };
 
   constructor() {
     this.current_species = "Affinis";
+    this.active_img = this.species["Affinis"];
   }
 
   ngAfterViewInit() { }
 
-  public slideChanged():void {
-    this.current_species = this.species[this.slides.getActiveIndex()];
-  }
-
-  public getSelected():string {
-    return this.files[this.slides.getActiveIndex()];
-  }
-
-  public prev(): void {
+  public onSelectChange(): void {
+    this.active_img = this.species[this.current_species];
 
   }
 
-  public next(): void {
+  public getSelected(): string {
+    return this.current_species;
+  }
+
+  public back(): void {
+    // this.nav.push();
+  }
+
+  public continue(): void {
 
   }
 }

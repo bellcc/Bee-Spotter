@@ -14,7 +14,7 @@ import { LoginPage } from '../pages/login/login';
 
 import { AuthenticateProvider } from '../providers/authenticate/authenticate';
 
-import { File } from '@ionic-native/file';
+// import { File } from '@ionic-native/file';
 import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from "@ionic-native/camera";
 import { SpottingsProvider } from '../providers/spottings/spottings';
@@ -39,7 +39,6 @@ import { SpottingsProvider } from '../providers/spottings/spottings';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthenticateProvider,
-    File,
     Camera,
     SpottingsProvider,
     Geolocation,

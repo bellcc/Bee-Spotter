@@ -101,4 +101,5 @@
         <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="This app wants to get your location always, even this app runs in background." />
     </plugin>
     <allow-navigation href="http://192.168.200.117:8100" />
+    <allow-navigation href="http://192.168.1.13:8100" />
 </widget>
