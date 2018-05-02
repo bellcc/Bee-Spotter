@@ -7,6 +7,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps } from "@ionic-native/google-maps";
 
+import { SQLite } from "@ionic-native/sqlite";
+
+import { CameraPreview } from "@ionic-native/camera-preview"
+
 import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
@@ -14,7 +18,6 @@ import { LoginPage } from '../pages/login/login';
 
 import { AuthenticateProvider } from '../providers/authenticate/authenticate';
 
-// import { File } from '@ionic-native/file';
 import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from "@ionic-native/camera";
 import { SpottingsProvider } from '../providers/spottings/spottings';
@@ -42,7 +45,9 @@ import { SpottingsProvider } from '../providers/spottings/spottings';
     Camera,
     SpottingsProvider,
     Geolocation,
-    GoogleMaps
+    GoogleMaps,
+    SQLite,
+    CameraPreview
   ]
 })
 export class AppModule {}

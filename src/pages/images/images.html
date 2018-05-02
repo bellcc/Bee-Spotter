@@ -1,0 +1,14 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row *ngFor="let image of images">
+      <ion-col >
+        <img [src]="image.imgData" style = "height:50px;width:50px" />
+      </ion-col>
+      <ion-col>
+        <ion-checkbox [(ngModel)]="ItemSelected"></ion-checkbox>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <button ion-button (click) = "goToSubmit()">Submit Spotting</button>
+</ion-content>

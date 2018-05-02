@@ -22,4 +22,7 @@ export class ProfilePage {
     console.log('ionViewDidLoad ProfilePage');
   }
 
+  public back(): void {
+    // this.navCtrl.push('LoginPage');
+  }
 }

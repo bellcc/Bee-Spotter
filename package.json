@@ -21,11 +21,13 @@
         "@angular/platform-browser": "4.4.4",
         "@angular/platform-browser-dynamic": "4.4.4",
         "@ionic-native/camera": "^4.5.3",
+        "@ionic-native/camera-preview": "^4.7.0",
         "@ionic-native/core": "^4.7.0",
         "@ionic-native/file": "^4.5.3",
         "@ionic-native/geolocation": "^4.7.0",
         "@ionic-native/google-maps": "^4.7.0",
         "@ionic-native/splash-screen": "4.3.2",
+        "@ionic-native/sqlite": "^4.7.0",
         "@ionic-native/status-bar": "4.3.2",
         "@ionic/storage": "^2.0.1",
         "cordova-android": "^6.2.3",
@@ -74,7 +76,8 @@
                 "API_KEY_FOR_IOS": "AIzaSyDdJaHzoqtOln9q-0vAA9Vep8WtjPi3G9Y",
                 "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",
                 "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
-            }
+            },
+            "cordova-plugin-camera-preview": {}
         },
         "platforms": [
             "android",

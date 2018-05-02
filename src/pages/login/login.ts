@@ -19,25 +19,20 @@ export class LoginPage {
   constructor(public myService: AuthenticateProvider, public tmpService: SpottingsProvider, public storage: Storage, public nav: NavController) {
     this.invalid = false;
 
-    /*
     storage.get('auth_token').then((token) => {
       if (token) {
-        // this.nav.push('ProfilePage');
-        // this.nav.push('IdentificationPage');
-        this.nav.push('LocationPage');
+        this.nav.push('CameraPage');
       } else {
         console.log("Token not found");
       }
     });
-    */
   }
 
   logForm() {
     this.myService.login(this.todo["username"], this.todo["password"]).subscribe(allowed => {
       if (allowed) {
-        console.log("AUTH SUCCESS");
+        this.nav.push('CameraPage');
       } else {
-        console.log("AUTH FAILURE");
         this.invalid = true;
       }
     },

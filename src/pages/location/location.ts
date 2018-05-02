@@ -85,4 +85,8 @@ export class LocationPage {
 
     toast.present();
   }
+
+  public back(): void {}
+
+  public next(): void {}
 }
