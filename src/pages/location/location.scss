@@ -1,6 +1,15 @@
 page-location {
   #map_canvas {
-    height: 85%;
+    height: 75%;
     width: 100%;
   }
+}
+
+.fixed-button {
+  position: fixed;
+  bottom: 20px;
+}
+
+#placeMarker {
+  width: 92%;
 }

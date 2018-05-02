@@ -3,5 +3,18 @@
 
   <div id="map_canvas"></div>
 
-  <button ion-button (click)="markLocation()">Add Marker</button>
+  <div text-center align-items-center>
+    <button id="placeMarker" ion-button (click)="markLocation()">Add Marker</button>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button class="fixed-button" ion-button (click)="back()">Back</button>
+      </ion-col>
+      <ion-col>
+        <button class="fixed-button" ion-button (click)="continue()">Continue</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

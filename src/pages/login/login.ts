@@ -19,10 +19,6 @@ export class LoginPage {
   constructor(public myService: AuthenticateProvider, public tmpService: SpottingsProvider, public storage: Storage, public nav: NavController) {
     this.invalid = false;
 
-    // this.nav.push('LocationPage');
-    // this.nav.push('ProfilePage');
-    this.nav.push('IdentificationPage');
-
     /*
     storage.get('auth_token').then((token) => {
       if (token) {
