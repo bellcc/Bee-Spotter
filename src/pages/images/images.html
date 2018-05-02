@@ -1,0 +1,18 @@
+
+
+
+<ion-content padding>
+   <ion-grid *ngfor = "let image for images" >
+		<ion-row>
+			<ion-col>
+				<img [src] = "image.imgData" style = "height:50px;width:50px" />
+			</ion-col>
+			<ion-col>
+				<ion-checkBox [(ngModel)] = "ItemSelected" value = {{image.time}}></ion-checkBox>
+			</ion-col>
+	<ion-grid>
+
+
+	<button ion-button (click) = "goToSubmit()">Submit Spotting</button>
+
+</ion-content>

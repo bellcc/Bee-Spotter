@@ -1,0 +1,29 @@
+
+
+<ion-content> 
+
+<ion-content class="submit-content">
+
+  <div class="col">
+    <div class="row">
+      <ion-label >Title</ion-label>
+      <ion-input type = "text" id = "Title" [(ngModel)]="title"> </ion-input>
+    </div>
+    <div class="row">
+      <ion-label >Location</ion-label>
+      <ion-input type = "text" id = "Coords" [(ngModel)]="Coords" >  </ion-input>
+      <button ion-button full (click)="fillInTheCoords()" class="options">Find on the map</button>
+    </div>
+    <div class="row">
+      <button ion-button full (click)="getCurrentLoc()" class="options">Use Current location</button>
+    </div>
+    <div class="row">
+      <button ion-button full (click)="goToIdentifier()" class="options">Identify your Bee</button>
+    </div>
+    <div class="row">
+      <button ion-button full (click)="submitSpotting()" class="options">Submit To Server</button>
+    </div>
+  </div>
+
+
+</ion-content>
