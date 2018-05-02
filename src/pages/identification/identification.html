@@ -1,40 +1,91 @@
 <ion-content padding class="identification-content" >
-  <h3>Select Bee Species: </h3>
-  <ion-item>
-    <ion-label>Bee Species</ion-label>
-    <ion-select [(ngModel)]="current_species" (ionChange)="onSelectChange()">
-      <ion-option value="Affinis">Affinis</ion-option>
-      <ion-option value="Auriocomus">Auriocomus</ion-option>
-      <ion-option value="Bimaculatus">Bimaculatus</ion-option>
-      <ion-option value="Citrinus">Citrinus</ion-option>
-      <ion-option value="Fervidus">Fervidus</ion-option>
-      <ion-option value="Fraternus">Fraternus</ion-option>
-      <ion-option value="Griseocollis">Griseocollis</ion-option>
-      <ion-option value="Impatiens">Impatiens</ion-option>
-      <ion-option value="Pensylvanicus">Pensylvanicus</ion-option>
-      <ion-option value="Perplexus">Perplexus</ion-option>
-      <ion-option value="Rufocinctus">Rufocinctus</ion-option>
-      <ion-option value="Vagans">Vagans</ion-option>
-      <ion-option value="Variabilis">Variabilis</ion-option>
-    </ion-select>
-  </ion-item>
+  <h3 id="species_name"> {{ current_species }} </h3>
 
-  <ion-grid align-items-center>
-    <ion-row>
-      <ion-col *ngFor="let picture of active_img">
-        <img src="{{ picture }}">
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-slides (ionSlideDidChange)="slideChanged()">
+    <ion-slide>
+      <img class="species-img" src="assets/imgs/species/affinis1.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/affinis5.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/affinis4.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/affinis3.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/affinis2.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/auricomus3.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/auricomus1.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/auricomus2.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/bimaculatus.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/citrinus3.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/citrinus1.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/citrinus2.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/fervidus.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/fraternus.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/griseocollis1.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/griseocollis4.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/griseocollis3.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/griseocollis2.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/impatiens.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/pensylvanicus1.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/pensylvanicus2.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/apis_mellifera.png">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/apis_mellifera.png">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/vagans1.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/vagans2.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/variabilis2.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/variabilis1.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/species/variabilis3.jpg">
+    </ion-slide>
+  </ion-slides>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <button class="fixed-button" ion-button (click)="back()">Back</button>
-      </ion-col>
-      <ion-col>
-        <button class="fixed-button" ion-button (click)="continue()">Continue</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
 </ion-content>
