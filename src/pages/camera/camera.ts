@@ -41,6 +41,10 @@ export class CameraPage {
     cameraP.startCamera(options);
   }
 
+  ionViewLoad() {
+    this.cameraP.show();
+  }
+
   public takePicture(){
     this.cameraP.takePicture(this.pictureOpts).then((imageData) => {
       this.image = 'data:image/jpeg;base64,' + imageData;
@@ -56,6 +60,6 @@ export class CameraPage {
   }
 
   public back(): void {
-
+    this.navCtrl.pop();
   }
 }

@@ -20,6 +20,8 @@ export class LoginPage {
               public nav: NavController) {
     this.invalid = false;
 
+    // this.nav.push('CameraPage');
+
     /*
     storage.get('auth_token').then((token) => {
       if (token) {

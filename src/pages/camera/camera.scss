@@ -4,7 +4,15 @@ page-camera {
   }
 }
 
+.camera-content {
+  background-color: #000000;
+}
+
 .fixed-button {
   position: fixed;
   bottom: 10px;
+}
+
+.camera-button {
+  background-color: #FFD600;
 }

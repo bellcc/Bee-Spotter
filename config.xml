@@ -105,4 +105,5 @@
     <plugin name="cordova-plugin-camera-preview" spec="~0.9.0" />
     <engine name="android" spec="~7.0.0" />
     <plugin name="cordova-plugin-datepicker" spec="^0.9.3" />
+    <allow-navigation href="http://172.25.24.32:8101" />
 </widget>
