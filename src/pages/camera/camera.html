@@ -1,6 +1,21 @@
-<ion-content padding >
-  <button ion-button (click) = "goToSubmit()">Submit Spotting</button>
-  <button ion-button (click) = "takePicture()"> Picture </button>
+<ion-content padding>
 
-  <img [src] = "image" style = "height:50px;width:50px" />
+  <ion-fab left bottom>
+    <button ion-fab color="primary" (click)="back()">
+      <ion-icon name="md-arrow-back"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-fab center bottom>
+    <button ion-fab color="primary" (click)="takePicture()">
+      <ion-icon name="md-camera"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="submit()">
+      <ion-icon name="md-arrow-forward"></ion-icon>
+    </button>
+  </ion-fab>
+
 </ion-content>

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, AlertController, NavController, NavParams } from 'ionic-angular';
+import {SpottingsProvider} from "../../providers/spottings/spottings";
+
+import { Storage } from "@ionic/storage";
 
 @IonicPage()
 @Component({
@@ -10,6 +13,8 @@ export class IdentificationPage {
 
   current_species: string;
   active_img: any;
+  token: string;
+  spotting; object;
 
   species: object = {
     "Affinis": [
@@ -68,27 +73,81 @@ export class IdentificationPage {
     ]
   };
 
-  constructor() {
+  constructor(private alertCtrl: AlertController, public nav: NavController, public params: NavParams,
+              public myService: SpottingsProvider, public storage: Storage) {
     this.current_species = "Affinis";
     this.active_img = this.species["Affinis"];
+
+    this.spotting = {
+      "title": this.params.data["title"],
+      "date_spotted": this.params.data["date_spotted"],
+      "latitude": this.params.data["latitude"],
+      "longitude": this.params.data["longitude"],
+      "amateur_species_name": this.params.data["amateur_species_name"],
+      "image": this.params.data["image"]
+    };
+
+    this.spotting.amateur_species_name = this.current_species;
+
+    storage.get('auth_token').then((token) => {
+      this.token = token;
+    });
   }
 
   ngAfterViewInit() { }
 
   public onSelectChange(): void {
     this.active_img = this.species[this.current_species];
-
-  }
-
-  public getSelected(): string {
-    return this.current_species;
+    this.spotting.amateur_species_name = this.current_species;
   }
 
   public back(): void {
     // this.nav.push();
   }
 
-  public continue(): void {
+  public submit(): void {
+    this.presentConfirm();
+  }
 
+  presentConfirm() {
+    let alert = this.alertCtrl.create({
+      title: 'Spotting Confirmation',
+      message: 'Are you sure you want to submit this spotting now?',
+      buttons: [
+        {
+          text: 'Save as Draft',
+          handler: () => {
+            // Store in database
+            this.nav.push('CameraPage');
+          }
+        },
+        {
+          text: 'Submit',
+          handler: () => {
+            /*
+            console.log(this.spotting["title"]);
+            console.log(this.spotting["date_spotted"]);
+            console.log(this.spotting["latitude"]);
+            console.log(this.spotting["longitude"]);
+            console.log(this.spotting["amateur_species_name"]);
+
+            this.spotting["latitude"] = "39.5085087";
+            this.spotting["longitude"] = "-84.73803749999999";
+
+            this.myService.create_spotting(this.spotting.title, this.spotting.date_spotted, this.spotting.latitude,
+              this.spotting.longitude, this.spotting.amateur_species_name, this.token).subscribe(data => {
+                console.log(data);
+            },
+              error => {
+                console.log("error");
+            });
+            */
+
+            this.nav.push('CameraPage');
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }

@@ -1,3 +1,10 @@
 page-camera {
+  ion-content {
+    background-color: transparent;
+  }
+}
 
+.fixed-button {
+  position: fixed;
+  bottom: 10px;
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Geolocation } from '@ionic-native/geolocation';
-import {GoogleMaps, GoogleMap, GoogleMapsEvent, Marker, LatLng} from '@ionic-native/google-maps';
+import {GoogleMaps, GoogleMap, GoogleMapsEvent } from '@ionic-native/google-maps';
 
 import { Platform } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
@@ -16,10 +16,10 @@ import { ToastController } from 'ionic-angular';
 export class LocationPage {
 
   map: GoogleMap;
-  spotting: {};
+  spotting: object;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform,
-              private geolocation: Geolocation, private toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public params: NavParams, public platform: Platform,
+              public geolocation: Geolocation, private toastCtrl: ToastController) {
     platform.ready()
       .then(() => {
         geolocation.getCurrentPosition().then(pos => {
@@ -27,6 +27,19 @@ export class LocationPage {
           console.log(pos.coords.longitude);
         })
     });
+
+    this.spotting = {
+      "title": this.params.data["title"],
+      "date_spotted": this.params.data["date_spotted"],
+      "latitude": this.params.data["latitude"],
+      "longitude": this.params.data["longitude"],
+      "amateur_species_name": this.params.data["amateur_species_name"],
+      "image": this.params.data["image"]
+    };
+
+    console.log(this.params.data["title"]);
+
+    console.log(this.params);
   }
 
   ionViewDidLoad() {
@@ -64,7 +77,10 @@ export class LocationPage {
   public markLocation(): void {
     let pos = this.map.getCameraPosition();
     this.createMarker(pos.target.lat, pos.target.lng);
-    this.presentToast(pos.target.lat + ", " + pos.target.lng);
+    // this.presentToast(pos.target.lat + ", " + pos.target.lng);
+
+    this.spotting["latitude"] = pos.target.lat;
+    this.spotting["longitude"] = pos.target.lng;
   }
 
   public getSpottingLocation(): object {
@@ -86,7 +102,11 @@ export class LocationPage {
     toast.present();
   }
 
-  public back(): void {}
+  public back(): void {
+    this.navCtrl.pop();
+  }
 
-  public next(): void {}
+  public next(): void {
+    this.navCtrl.push('IdentificationPage', this.spotting);
+  }
 }

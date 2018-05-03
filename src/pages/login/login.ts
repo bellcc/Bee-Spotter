@@ -16,9 +16,11 @@ export class LoginPage {
   todo = { };
   invalid : boolean;
 
-  constructor(public myService: AuthenticateProvider, public tmpService: SpottingsProvider, public storage: Storage, public nav: NavController) {
+  constructor(public myService: AuthenticateProvider, public tmpService: SpottingsProvider, public storage: Storage,
+              public nav: NavController) {
     this.invalid = false;
 
+    /*
     storage.get('auth_token').then((token) => {
       if (token) {
         this.nav.push('CameraPage');
@@ -26,9 +28,12 @@ export class LoginPage {
         console.log("Token not found");
       }
     });
+    */
   }
 
   logForm() {
+    this.nav.push('CameraPage');
+    /*
     this.myService.login(this.todo["username"], this.todo["password"]).subscribe(allowed => {
       if (allowed) {
         this.nav.push('CameraPage');
@@ -40,5 +45,6 @@ export class LoginPage {
         console.log("AUTH ERROR");
       }
     );
+    */
   }
 }

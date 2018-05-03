@@ -3,18 +3,21 @@
 
   <div id="map_canvas"></div>
 
-  <div text-center align-items-center>
-    <button id="placeMarker" ion-button (click)="markLocation()">Add Marker</button>
-  </div>
+  <ion-fab left bottom>
+    <button ion-fab color="primary" (click)="back()">
+      <ion-icon name="md-arrow-back"></ion-icon>
+    </button>
+  </ion-fab>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <button class="fixed-button" ion-button (click)="back()">Back</button>
-      </ion-col>
-      <ion-col>
-        <button class="fixed-button" ion-button (click)="next()">Continue</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-fab center bottom>
+    <button ion-fab color="primary" (click)="markLocation()">
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="next()">
+      <ion-icon name="md-arrow-forward"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>

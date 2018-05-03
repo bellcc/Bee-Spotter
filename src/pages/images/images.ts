@@ -19,7 +19,7 @@ export class ImagesPage {
   }
 
   private getImages(){
-    var sql = "SELECT * FROM images where spottingId IS NULL";
+    // var sql = "SELECT * FROM images where spottingId IS NULL";
 
     /*
     this.db.executeSql(sql,{})
@@ -38,11 +38,7 @@ export class ImagesPage {
       */
   }
 
-  private goToSpotting(){
-
-
-    this.navCtrl.push('SubmitPage');
-  }
+  // private goToSpotting() { this.navCtrl.push('SubmitPage'); }
 
 
   private connectToDb():void {

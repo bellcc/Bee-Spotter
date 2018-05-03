@@ -1,24 +1,42 @@
 <ion-content class="submit-content">
 
-  <div class="col">
-    <div class="row">
-      <ion-label >Title</ion-label>
-      <ion-input type = "text" id = "Title" [(ngModel)]="title"> </ion-input>
-    </div>
-    <div class="row">
-      <ion-label >Location</ion-label>
-      <ion-input type = "text" id = "Coords" [(ngModel)]="Coords" >  </ion-input>
-      <button ion-button full (click)="fillInTheCoords()" class="options">Find on the map</button>
-    </div>
-    <div class="row">
-      <button ion-button full (click)="getCurrentLoc()" class="options">Use Current location</button>
-    </div>
-    <div class="row">
-      <button ion-button full (click)="goToIdentifier()" class="options">Identify your Bee</button>
-    </div>
-    <div class="row">
-      <button ion-button full (click)="submitSpotting()" class="options">Submit To Server</button>
-    </div>
+  <h3>Spotting Creation</h3>
+
+  <div>
+    <ion-item class="input">
+      <ion-label stacked>Title</ion-label>
+      <ion-input  type="text" [(ngModel)]="title"></ion-input>
+    </ion-item>
+
+    <ion-item class="input">
+      <ion-label stacked>Start Time</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" [(ngModel)]="date_spotted"></ion-datetime>
+    </ion-item>
   </div>
+
+  <!--
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button class="fixed-button" ion-button (click)="back()">Back</button>
+      </ion-col>
+      <ion-col>
+        <button class="fixed-button" ion-button (click)="next()">Continue</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  -->
+
+  <ion-fab left bottom>
+    <button ion-fab color="primary" (click)="back()">
+      <ion-icon name="md-arrow-back"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="next()">
+      <ion-icon name="md-arrow-forward"></ion-icon>
+    </button>
+  </ion-fab>
 
 </ion-content>

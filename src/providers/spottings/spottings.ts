@@ -60,7 +60,8 @@ export class SpottingsProvider {
     });
   }
 
-  public create_spotting(spotting: Spotting, token: string) {
+  public create_spotting(title: string, date: string, latitude: number, longitude: number, amateur_species_name: string,
+                         token: string) {
     return Observable.create(observer => {
       let headers = {
         'content-type': "application/x-www-form-urlencoded",
@@ -68,11 +69,11 @@ export class SpottingsProvider {
       };
 
       let payload = new FormData();
-      payload.append('title', spotting.title);
-      payload.append('date_spotted', spotting.date.toUTCString());
-      payload.append('latitude', spotting.latitude.toString());
-      payload.append('longitude', spotting.longitude.toString());
-      payload.append('amateur_species_name', spotting.amateur_species_name);
+      payload.append('title', title);
+      payload.append('date_spotted', date);
+      payload.append('latitude', latitude.toString());
+      payload.append('longitude', longitude.toString());
+      payload.append('amateur_species_name', amateur_species_name);
 
       this.http.post("/api/v1/spottings", payload, headers)
         .map(res => res.json())
