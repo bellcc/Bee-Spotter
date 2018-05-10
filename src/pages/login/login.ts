@@ -34,11 +34,12 @@ export class LoginPage {
   }
 
   logForm() {
-    this.nav.push('CameraPage');
-    /*
+    // this.nav.push('IdentificationPage');
+
     this.myService.login(this.todo["username"], this.todo["password"]).subscribe(allowed => {
       if (allowed) {
-        this.nav.push('CameraPage');
+        this.nav.push('IdentificationPage');
+        // this.nav.push('CameraPage');
       } else {
         this.invalid = true;
       }
@@ -47,6 +48,5 @@ export class LoginPage {
         console.log("AUTH ERROR");
       }
     );
-    */
   }
 }

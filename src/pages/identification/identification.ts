@@ -17,6 +17,7 @@ export class IdentificationPage {
   spotting; object;
 
   species: object = {
+    "Select a Species": [],
     "Affinis": [
       "assets/imgs/species/affinis1.jpg",
       "assets/imgs/species/affinis5.jpg",
@@ -75,8 +76,8 @@ export class IdentificationPage {
 
   constructor(private alertCtrl: AlertController, public nav: NavController, public params: NavParams,
               public myService: SpottingsProvider, public storage: Storage) {
-    this.current_species = "Affinis";
-    this.active_img = this.species["Affinis"];
+    this.current_species = "Select a Species";
+    this.active_img = this.species["Select a Species"];
 
     this.spotting = {
       "title": this.params.data["title"],
@@ -124,30 +125,27 @@ export class IdentificationPage {
         {
           text: 'Submit',
           handler: () => {
-            /*
-            console.log(this.spotting["title"]);
-            console.log(this.spotting["date_spotted"]);
-            console.log(this.spotting["latitude"]);
-            console.log(this.spotting["longitude"]);
-            console.log(this.spotting["amateur_species_name"]);
+            this.spotting["title"] = "Hello World";
+            this.spotting["date_spotted"] = "05-07-2018";
+            this.spotting["latitude"] = 39.5085087;
+            this.spotting["longitude"] = -84.73803749999999;
 
-            this.spotting["latitude"] = "39.5085087";
-            this.spotting["longitude"] = "-84.73803749999999";
 
-            this.myService.create_spotting(this.spotting.title, this.spotting.date_spotted, this.spotting.latitude,
-              this.spotting.longitude, this.spotting.amateur_species_name, this.token).subscribe(data => {
+            this.myService.create_spotting(this.spotting["title"], new Date(this.spotting["date_spotted"]).getTime(),
+              this.spotting["latitude"], this.spotting["longitude"], this.spotting["amateur_species_name"],
+              "nyPe1CtBrhzyuMpeqyBS8xW2uHMYwW2T").subscribe(data => {
                 console.log(data);
             },
               error => {
                 console.log("error");
             });
-            */
 
-            this.nav.push('CameraPage');
+            // this.nav.push('CameraPage');
           }
         }
       ]
     });
+
     alert.present();
   }
 }

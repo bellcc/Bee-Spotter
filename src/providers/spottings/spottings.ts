@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -60,30 +60,42 @@ export class SpottingsProvider {
     });
   }
 
-  public create_spotting(title: string, date: string, latitude: number, longitude: number, amateur_species_name: string,
+  public create_spotting(title: string, date: number, latitude: number, longitude: number, amateur_species_name: string,
                          token: string) {
+    console.log(title);
+    console.log(date.toString());
+    console.log(latitude.toString());
+    console.log(longitude.toString());
+    console.log(amateur_species_name);
+    console.log(token);
+
     return Observable.create(observer => {
-      let headers = {
-        'content-type': "application/x-www-form-urlencoded",
-        'X-BeeSpotter-Token': token
-      };
+      const headers = new Headers();
+      headers.append('Content-Type', "application/x-www-form-urlencoded");
+      headers.append('X-BeeSpotter-Token', token);
 
       let payload = new FormData();
       payload.append('title', title);
-      payload.append('date_spotted', date);
+      payload.append('date_spotted', date.toString());
       payload.append('latitude', latitude.toString());
       payload.append('longitude', longitude.toString());
       payload.append('amateur_species_name', amateur_species_name);
 
-      this.http.post("/api/v1/spottings", payload, headers)
+      const options = new RequestOptions({headers: headers});
+
+      this.http.post("/api/v1/spottings", JSON.stringify(payload), options)
         .map(res => res.json())
         .subscribe( data => {
           // Perform some simple logic to determine if good
+
+            console.log(data);
 
             observer.next(data);
             observer.complete();
           },
           error => {
+            console.log(error);
+
             observer.next(false);
             observer.complete();
           }

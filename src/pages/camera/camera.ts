@@ -41,7 +41,8 @@ export class CameraPage {
     cameraP.startCamera(options);
   }
 
-  ionViewLoad() {
+  ionViewDidLoad() {
+    console.log("hello ugh");
     this.cameraP.show();
   }
 

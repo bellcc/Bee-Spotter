@@ -1,8 +1,9 @@
 <ion-content padding class="identification-content" >
-  <h3>Select Bee Species: </h3>
+  <h3>Select Bee Species (Optional): </h3>
   <ion-item>
     <ion-label>Bee Species</ion-label>
     <ion-select [(ngModel)]="current_species" (ionChange)="onSelectChange()">
+      <ion-option value="Select a Species">Select a Species</ion-option>
       <ion-option value="Affinis">Affinis</ion-option>
       <ion-option value="Auriocomus">Auriocomus</ion-option>
       <ion-option value="Bimaculatus">Bimaculatus</ion-option>

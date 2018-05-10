@@ -80,8 +80,6 @@
     <allow-navigation href="http://192.168.1.7:8100" />
     <allow-navigation href="http://192.168.1.2:8100" />
     <allow-navigation href="http://172.25.53.209:8100" />
-    <engine name="browser" spec="^4.1.0" />
-    <engine name="ios" spec="^4.4.0" />
     <plugin name="cordova-plugin-camera" spec="^4.0.2" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
@@ -103,7 +101,11 @@
     <allow-navigation href="http://172.25.24.32:8100" />
     <plugin name="cordova-sqlite-storage" spec="^2.2.1" />
     <plugin name="cordova-plugin-camera-preview" spec="~0.9.0" />
-    <engine name="android" spec="~7.0.0" />
     <plugin name="cordova-plugin-datepicker" spec="^0.9.3" />
     <allow-navigation href="http://172.25.24.32:8101" />
+    <allow-navigation href="http://172.25.55.21:8100" />
+    <allow-navigation href="http://172.25.54.27:8100" />
+    <engine name="browser" spec="^4.1.0" />
+    <engine name="ios" spec="^4.4.0" />
+    <engine name="android" spec="7.0.0" />
 </widget>

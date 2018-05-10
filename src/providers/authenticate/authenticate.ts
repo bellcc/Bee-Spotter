@@ -28,18 +28,20 @@ export class AuthenticateProvider {
       return Observable.throw("Please insert credentials");
     } else {
       return Observable.create(observer => {
-        let headers = {'content-type': "application/x-www-form-urlencoded"};
+        // let headers = {'content-type': "application/x-www-form-urlencoded"};
 
         let payload = new FormData();
         payload.append("username", username);
         payload.append("password", password);
 
-        this.http.post("http://localhost:8100/api/v1/auth", payload, headers)
+        this.http.post("/api/v1/auth", payload)
           .map(res => res.json())
           .subscribe( data => {
             if (data["auth_result"]) {
               this.currentUser = new User(username, password);
             }
+
+            console.log(data);
 
             this.storage.set("auth_token", data["auth_token"]);
 
