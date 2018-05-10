@@ -20,7 +20,6 @@ export class LoginPage {
               public nav: NavController) {
     this.invalid = false;
 
-    /*
     storage.get('auth_token').then((token) => {
       if (token) {
         this.nav.push('CameraPage', {"auth_token": token});
@@ -28,13 +27,11 @@ export class LoginPage {
         console.log("Token not found");
       }
     });
-    */
   }
 
   logForm() {
-    this.nav.push('CameraPage', {"auth_token": "lolwut"});
+    // this.nav.push('CameraPage', {"auth_token": "lolwut"});
 
-    /*
     this.myService.login(this.todo["username"], this.todo["password"]).subscribe(data => {
       if (data["auth_result"]) {
         this.nav.push('CameraPage', {"auth_token": data["auth_token"]});
@@ -46,6 +43,5 @@ export class LoginPage {
         console.log("AUTH ERROR");
       }
     );
-    */
   }
 }

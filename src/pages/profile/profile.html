@@ -1,10 +1,12 @@
-<ion-header no-border>
+<ion-content class="profile-content">
 
   <ion-navbar color="beespotter-yellow">
     <ion-title>Profile</ion-title>
 
     <ion-buttons left>
-      <button ion-button icon-only (click)="back()"><ion-icon class="custom-icon" name="md-arrow-back"></ion-icon></button>
+      <button ion-button icon-only (click)="back()">
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
     </ion-buttons>
 
     <ion-buttons right>
@@ -13,56 +15,20 @@
 
   </ion-navbar>
 
-</ion-header>
-
-<ion-content class="profile-content">
   <ion-toolbar color="beespotter-yellow">
     <img id="profile-img" src="assets/imgs/user-profile.png"/>
     <p id="name">Christopher Bell</p>
   </ion-toolbar>
 
-  <ion-card>
-    <img src="assets/imgs/bee.jpeg"/>
-    <ion-card-content color="beespotter-light">
-      <ion-card-title>
-        Flower Bee
-      </ion-card-title>
-      <p>Date: 03/28/2018</p>
-      <p>Location: Times Square, NY</p>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <img src="assets/imgs/bee.jpeg"/>
-    <ion-card-content>
-      <ion-card-title>
-        Flower Bee
-      </ion-card-title>
-      <p>Date: 03/28/2018</p>
-      <p>Location: Times Square, NY</p>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <img src="assets/imgs/bee.jpeg"/>
-    <ion-card-content>
-      <ion-card-title>
-        Flower Bee
-      </ion-card-title>
-      <p>Date: 03/28/2018</p>
-      <p>Location: Times Square, NY</p>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <img src="assets/imgs/bee.jpeg"/>
-    <ion-card-content>
-      <ion-card-title>
-        Flower Bee
-      </ion-card-title>
-      <p>Date: 03/28/2018</p>
-      <p>Location: Times Square, NY</p>
-    </ion-card-content>
-  </ion-card>
+  <div id="spottings" *ngFor="let spotting of spottings">
+    <ion-card>
+      <img src="assets/imgs/bee.jpeg"/>
+      <ion-card-content color="beespotter-light">
+        <ion-card-title>{{ spotting.title }}</ion-card-title>
+        <p>Date: {{ spotting.date }}</p>
+        <p>Location: {{ spotting.location }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
 
 </ion-content>

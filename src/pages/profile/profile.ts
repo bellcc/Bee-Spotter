@@ -15,14 +15,39 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
+  token: string;
+  spottings: object[];
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.token = this.navParams.get("auth_token");
+
+    this.spottings = [
+      {
+        "title": "Hello World",
+        "date": "03-01-2018",
+        "location": "Times Square"
+      },
+      {
+        "title": "Hello World",
+        "date": "03-01-2018",
+        "location": "Times Square"
+      },
+      {
+        "title": "Hello World",
+        "date": "03-01-2018",
+        "location": "Times Square"
+      },
+      {
+        "title": "Hello World",
+        "date": "03-01-2018",
+        "location": "Times Square"
+      }
+    ]
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
-  }
+  ionViewDidLoad() { }
 
   public back(): void {
-    // this.navCtrl.push('LoginPage');
+    this.navCtrl.push('CameraPage', {"auth_token": this.token});
   }
 }

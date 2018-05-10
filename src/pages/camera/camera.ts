@@ -64,6 +64,6 @@ export class CameraPage {
   }
 
   public back(): void {
-    this.navCtrl.pop();
+    this.navCtrl.push('ProfilePage', {"auth_token": this.auth_token});
   }
 }

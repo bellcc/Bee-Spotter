@@ -50,7 +50,6 @@ export class AuthenticateProvider {
               "auth_token": data["auth_token"]
             });
 
-            // observer.next(data["auth_result"]);
             observer.complete();
           },
           error => {
