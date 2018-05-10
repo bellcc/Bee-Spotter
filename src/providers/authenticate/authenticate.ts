@@ -34,7 +34,7 @@ export class AuthenticateProvider {
         payload.append("username", username);
         payload.append("password", password);
 
-        this.http.post("/api/v1/auth", payload)
+        this.http.post("https://dev.api.beespotter.org/api/v1/auth", payload)
           .map(res => res.json())
           .subscribe( data => {
             if (data["auth_result"]) {
@@ -47,9 +47,10 @@ export class AuthenticateProvider {
 
             observer.next({
               "auth_result": data["auth_result"],
-              "auth_token": data["auth_token"]
+              "auth_token": data["auth_to"]
             });
 
+            observer.next(data["auth_result"]);
             observer.complete();
           },
           error => {

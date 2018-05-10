@@ -4,15 +4,5 @@
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  },
-  "proxies": [
-    {
-      "path":"/api/v1/auth",
-      "proxyUrl": "https://dev.api.beespotter.org/api/v1/auth"
-    },
-    {
-      "path": "/api/v1/spottings",
-      "proxyUrl": "https://dev.api.beespotter.org/api/v1/spottings"
-    }
-  ]
+  }
 }

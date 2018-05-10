@@ -44,7 +44,7 @@ export class SpottingsProvider {
       payload.append('spotting_id', photo.id);
       payload.append('photo', photo.encoded_photo);
 
-      this.http.put("/api/v1/spottings", payload, headers)
+      this.http.put("https://dev.api.beespotter.org/api/v1/spottings", payload, headers)
         .map(res => res.json())
         .subscribe( data => {
           // Perform some simple logic to determine if good
@@ -62,13 +62,6 @@ export class SpottingsProvider {
 
   public create_spotting(title: string, date: number, latitude: number, longitude: number, amateur_species_name: string,
                          token: string) {
-    console.log(title);
-    console.log(date.toString());
-    console.log(latitude.toString());
-    console.log(longitude.toString());
-    console.log(amateur_species_name);
-    console.log(token);
-
     return Observable.create(observer => {
       const headers = new Headers();
       headers.append('Content-Type', "application/x-www-form-urlencoded");
@@ -83,7 +76,7 @@ export class SpottingsProvider {
 
       const options = new RequestOptions({headers: headers});
 
-      this.http.post("/api/v1/spottings", JSON.stringify(payload), options)
+      this.http.post("https://dev.api.beespotter.org/api/v1/spottings", JSON.stringify(payload), options)
         .map(res => res.json())
         .subscribe( data => {
           // Perform some simple logic to determine if good

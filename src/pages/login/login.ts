@@ -30,8 +30,6 @@ export class LoginPage {
   }
 
   logForm() {
-    // this.nav.push('CameraPage', {"auth_token": "lolwut"});
-
     this.myService.login(this.todo["username"], this.todo["password"]).subscribe(data => {
       if (data["auth_result"]) {
         this.nav.push('CameraPage', {"auth_token": data["auth_token"]});
