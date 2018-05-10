@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Geolocation } from '@ionic-native/geolocation';
-import {GoogleMaps, GoogleMap, GoogleMapsEvent } from '@ionic-native/google-maps';
+import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions } from '@ionic-native/google-maps';
 
 import { Platform } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
@@ -23,8 +23,7 @@ export class LocationPage {
     platform.ready()
       .then(() => {
         geolocation.getCurrentPosition().then(pos => {
-          console.log(pos.coords.latitude);
-          console.log(pos.coords.longitude);
+          this.loadMap(pos.coords.latitude, pos.coords.longitude);
         })
     });
 
@@ -37,19 +36,25 @@ export class LocationPage {
       "image": this.params.data["image"],
       "auth_token": this.params.get("auth_token")
     };
-
-    console.log(this.params.data["title"]);
-
-    console.log(this.params);
   }
 
   ionViewDidLoad() {
-    this.loadMap();
     this.presentToast("Zoom in on the location of the bee spotting. Add a marker to the map. Drag marker to correct location.");
   }
 
-  private loadMap(): void {
-    this.map = GoogleMaps.create('map_canvas');
+  private loadMap(latitude: number, longitude: number): void {
+    let mapOptions: GoogleMapOptions = {
+      camera: {
+        target: {
+          lat: latitude,
+          lng: longitude
+        },
+        zoom: 18,
+        tilt: 30
+      }
+    };
+
+    this.map = GoogleMaps.create('map_canvas', mapOptions);
 
     this.map.one(GoogleMapsEvent.MAP_READY).then(() => {});
   }

@@ -32,8 +32,9 @@ export class LoginPage {
   }
 
   logForm() {
-    // this.nav.push('IdentificationPage');
+    this.nav.push('CameraPage', {"auth_token": "lolwut"});
 
+    /*
     this.myService.login(this.todo["username"], this.todo["password"]).subscribe(data => {
       if (data["auth_result"]) {
         this.nav.push('CameraPage', {"auth_token": data["auth_token"]});
@@ -45,5 +46,6 @@ export class LoginPage {
         console.log("AUTH ERROR");
       }
     );
+    */
   }
 }
