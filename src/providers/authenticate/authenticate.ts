@@ -45,7 +45,12 @@ export class AuthenticateProvider {
 
             this.storage.set("auth_token", data["auth_token"]);
 
-            observer.next(data["auth_result"]);
+            observer.next({
+              "auth_result": data["auth_result"],
+              "auth_token": data["auth_token"]
+            });
+
+            // observer.next(data["auth_result"]);
             observer.complete();
           },
           error => {

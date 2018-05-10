@@ -88,8 +88,6 @@ export class SpottingsProvider {
         .subscribe( data => {
           // Perform some simple logic to determine if good
 
-            console.log(data);
-
             observer.next(data);
             observer.complete();
           },

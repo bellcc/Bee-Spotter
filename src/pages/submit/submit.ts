@@ -19,7 +19,8 @@ export class SubmitPage {
       "date_spotted": this.navParams.get("date_spotted"),
       "latitude": this.navParams.get("latitude"),
       "longitude": this.navParams.get("longitude"),
-      "amateur_species_name": this.navParams.get("amateur_species_name")
+      "amateur_species_name": this.navParams.get("amateur_species_name"),
+      "auth_token": this.navParams.get("auth_token")
     };
   }
 

@@ -34,7 +34,8 @@ export class LocationPage {
       "latitude": this.params.data["latitude"],
       "longitude": this.params.data["longitude"],
       "amateur_species_name": this.params.data["amateur_species_name"],
-      "image": this.params.data["image"]
+      "image": this.params.data["image"],
+      "auth_token": this.params.get("auth_token")
     };
 
     console.log(this.params.data["title"]);

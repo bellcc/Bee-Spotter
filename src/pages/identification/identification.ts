@@ -88,11 +88,9 @@ export class IdentificationPage {
       "image": this.params.data["image"]
     };
 
-    this.spotting.amateur_species_name = this.current_species;
+    this.token = this.params.get("auth_token");
 
-    storage.get('auth_token').then((token) => {
-      this.token = token;
-    });
+    this.spotting.amateur_species_name = this.current_species;
   }
 
   ngAfterViewInit() { }
@@ -125,22 +123,14 @@ export class IdentificationPage {
         {
           text: 'Submit',
           handler: () => {
-            this.spotting["title"] = "Hello World";
-            this.spotting["date_spotted"] = "05-07-2018";
-            this.spotting["latitude"] = 39.5085087;
-            this.spotting["longitude"] = -84.73803749999999;
-
-
             this.myService.create_spotting(this.spotting["title"], new Date(this.spotting["date_spotted"]).getTime(),
               this.spotting["latitude"], this.spotting["longitude"], this.spotting["amateur_species_name"],
-              "nyPe1CtBrhzyuMpeqyBS8xW2uHMYwW2T").subscribe(data => {
+              this.token).subscribe(data => {
                 console.log(data);
             },
               error => {
                 console.log("error");
             });
-
-            // this.nav.push('CameraPage');
           }
         }
       ]
