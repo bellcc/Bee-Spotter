@@ -76,7 +76,8 @@ export class SpottingsProvider {
 
       const options = new RequestOptions({headers: headers});
 
-      this.http.post("https://dev.api.beespotter.org/api/v1/spottings", JSON.stringify(payload), options)
+      // https://dev.api.beespotter.org/api/v1/spottings
+      this.http.post("/api/v1/spottings", JSON.stringify(payload), options)
         .map(res => res.json())
         .subscribe( data => {
           // Perform some simple logic to determine if good

@@ -4,7 +4,8 @@ import { NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import { AuthenticateProvider } from "../../providers/authenticate/authenticate"
-import {SpottingsProvider} from "../../providers/spottings/spottings";
+import { SpottingsProvider } from "../../providers/spottings/spottings";
+import { UserProvider } from "../../providers/user/user";
 
 
 @IonicPage()
@@ -17,7 +18,7 @@ export class LoginPage {
   invalid : boolean;
 
   constructor(public myService: AuthenticateProvider, public tmpService: SpottingsProvider, public storage: Storage,
-              public nav: NavController) {
+              public nav: NavController, public userService: UserProvider) {
     this.invalid = false;
 
     storage.get('auth_token').then((token) => {
