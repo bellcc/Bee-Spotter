@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { UserProvider } from "../../providers/user/user"
 
 @IonicPage()
 @Component({
@@ -16,10 +10,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ProfilePage {
 
   token: string;
+  name: string;
+  user_id: string;
   spottings: object[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: UserProvider) {
+    this.name = "User";
     this.token = this.navParams.get("auth_token");
+    this.user_id = this.navParams.get("user_id");
+
+    this.service.get_user_info(this.token, this.user_id).subscribe(data => {
+        // this.name = data["user_info"]["username"];
+      },
+      error => {
+        console.log(error);
+      }
+    );
 
     this.spottings = [
       {

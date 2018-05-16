@@ -13,10 +13,12 @@ export class CameraPage {
   image: string[];
   pictureOpts: object;
   auth_token: string;
+  user_id: string;
 
   constructor( private cameraP: CameraPreview, public navCtrl: NavController, public navParams: NavParams,
                public plat: Platform) {
-    this.auth_token = this.navParams.get("auth_token")
+    this.auth_token = this.navParams.get("auth_token");
+    this.user_id = this.navParams.get("user_id");
 
     this.pictureOpts = {
       width: 1280,
@@ -45,7 +47,6 @@ export class CameraPage {
   }
 
   ionViewDidLoad() {
-    console.log("hello ugh");
     this.cameraP.show();
   }
 
@@ -64,6 +65,6 @@ export class CameraPage {
   }
 
   public back(): void {
-    this.navCtrl.push('ProfilePage', {"auth_token": this.auth_token});
+    this.navCtrl.push('ProfilePage', {"auth_token": this.auth_token, "user_id": this.user_id});
   }
 }

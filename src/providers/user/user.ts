@@ -16,7 +16,7 @@ export class UserProvider {
     console.log('Hello UserProvider Provider');
   }
 
-  public get_user_info(token: string) {
+  public get_user_info(token: string, id: string) {
     return Observable.create(observer => {
       const headers = new Headers();
       headers.append('Content-Type', "application/x-www-form-urlencoded");
@@ -25,7 +25,7 @@ export class UserProvider {
       const options = new RequestOptions({headers: headers});
 
       // https://dev.api.beespotter.org/api/v1/users/me
-      this.http.post("/api/v1/users/me", options)
+      this.http.post("/api/v1/users/" + id, options)
         .map(res => res.json())
         .subscribe( data => {
             console.log(data);

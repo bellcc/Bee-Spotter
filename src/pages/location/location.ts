@@ -23,6 +23,11 @@ export class LocationPage {
     platform.ready()
       .then(() => {
         geolocation.getCurrentPosition().then(pos => {
+          this.spotting["latitude"] = pos.coords.latitude;
+          this.spotting["longitude"] = pos.coords.longitude;
+
+          console.log("Done");
+
           this.loadMap(pos.coords.latitude, pos.coords.longitude);
         })
     });
@@ -83,7 +88,6 @@ export class LocationPage {
   public markLocation(): void {
     let pos = this.map.getCameraPosition();
     this.createMarker(pos.target.lat, pos.target.lng);
-    // this.presentToast(pos.target.lat + ", " + pos.target.lng);
 
     this.spotting["latitude"] = pos.target.lat;
     this.spotting["longitude"] = pos.target.lng;
