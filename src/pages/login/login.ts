@@ -21,6 +21,7 @@ export class LoginPage {
               public nav: NavController, public userService: UserProvider) {
     this.invalid = false;
 
+    /*
     storage.get('auth_token').then((token) => {
       if (token) {
         this.nav.push('CameraPage', {"auth_token": token});
@@ -28,6 +29,7 @@ export class LoginPage {
         console.log("Token not found");
       }
     });
+    */
   }
 
   logForm() {

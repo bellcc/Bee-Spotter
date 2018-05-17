@@ -42,16 +42,9 @@ export class AuthenticateProvider {
               this.currentUser = new User(username, password);
             }
 
-            console.log(data);
-
             this.storage.set("auth_token", data["auth_token"]);
 
-            observer.next({
-              "auth_result": data["auth_result"],
-              "auth_token": data["auth_to"]
-            });
-
-            observer.next(data["auth_result"]);
+            observer.next(data);
             observer.complete();
           },
           error => {
