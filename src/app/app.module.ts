@@ -21,6 +21,7 @@ import { AuthenticateProvider } from '../providers/authenticate/authenticate';
 import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from "@ionic-native/camera";
 import { SpottingsProvider } from '../providers/spottings/spottings';
+import { DatabaseProvider } from '../providers/database/database';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SpottingsProvider } from '../providers/spottings/spottings';
     Geolocation,
     GoogleMaps,
     SQLite,
-    CameraPreview
+    CameraPreview,
+    DatabaseProvider
   ]
 })
 export class AppModule {}

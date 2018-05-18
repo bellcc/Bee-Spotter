@@ -13,6 +13,16 @@
       <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" [(ngModel)]="date_spotted"></ion-datetime>
     </ion-item>
   </div>
+  <div>
+    <ion-grid align-items-center>
+      <ion-row *ngFor="let picture of active_img;">
+        <ion-col>
+          <img [src] = "picture['imgData']" style = "height:80px;width:80px" />
+          <ion-checkbox  ></ion-checkbox>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 
   <!--
   <ion-grid>

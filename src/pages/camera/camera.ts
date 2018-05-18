@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams ,Platform } from 'ionic-angular';
 import { CameraPreview, CameraPreviewPictureOptions } from '@ionic-native/camera-preview';
-
+import { DatabaseProvider } from '../../providers/database/database';
 
 @IonicPage()
 @Component({
@@ -10,14 +10,16 @@ import { CameraPreview, CameraPreviewPictureOptions } from '@ionic-native/camera
 })
 export class CameraPage {
 
-  image: string[];
+  images: string[];
+  image:  string;
   pictureOpts: object;
   auth_token: string;
 
   constructor( private cameraP: CameraPreview, public navCtrl: NavController, public navParams: NavParams,
-               public plat: Platform) {
+               public plat: Platform, private sql :DatabaseProvider) {
     this.auth_token = this.navParams.get("auth_token")
-
+    this.images = [];
+    this.image = "";
     this.pictureOpts = {
       width: 1280,
       height: 1280,
@@ -51,7 +53,11 @@ export class CameraPage {
 
   public takePicture(){
     this.cameraP.takePicture(this.pictureOpts).then((imageData) => {
-      this.image.push('data:image/jpeg;base64,' + imageData)
+      this.images.push('data:image/jpeg;base64,' + imageData);
+      this.image = this.images[this.images.length-1];
+
+      this.sql.InsertImage(this.image);
+
     }, (err) => {
       console.log(err);
       // this.image = 'assets/img/test.jpg';

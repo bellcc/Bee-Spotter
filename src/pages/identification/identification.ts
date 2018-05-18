@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, AlertController, NavController, NavParams } from 'ionic-angular';
-import {SpottingsProvider} from "../../providers/spottings/spottings";
-
+//import {SpottingsProvider} from "../../providers/spottings/spottings";
+import { DatabaseProvider } from '../../providers/database/database';
 import { Storage } from "@ionic/storage";
 
 @IonicPage()
@@ -75,7 +75,7 @@ export class IdentificationPage {
   };
 
   constructor(private alertCtrl: AlertController, public nav: NavController, public params: NavParams,
-              public myService: SpottingsProvider, public storage: Storage) {
+              /*public myService: SpottingsProvider,*/ public storage: Storage , private sqlService:DatabaseProvider) {
     this.current_species = "Select a Species";
     this.active_img = this.species["Select a Species"];
 
@@ -116,21 +116,21 @@ export class IdentificationPage {
         {
           text: 'Save as Draft',
           handler: () => {
-            // Store in database
+            this.sqlService.InsertSpotting(this.spotting);
             this.nav.push('CameraPage');
           }
         },
         {
           text: 'Submit',
           handler: () => {
-            this.myService.create_spotting(this.spotting["title"], new Date(this.spotting["date_spotted"]).getTime(),
+          /*  this.myService.create_spotting(this.spotting["title"], new Date(this.spotting["date_spotted"]).getTime(),
               this.spotting["latitude"], this.spotting["longitude"], this.spotting["amateur_species_name"],
               this.token).subscribe(data => {
                 console.log(data);
             },
               error => {
                 console.log("error");
-            });
+            });*/
           }
         }
       ]
